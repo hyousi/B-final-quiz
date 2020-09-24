@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,9 +24,13 @@ public class Team {
     private String name;
 
     @OneToMany
-    private Set<Trainee> trainees;
+    private Set<Trainee> trainees = new HashSet<>();
 
     @OneToMany
-    private Set<Trainer> trainers;
+    private Set<Trainer> trainers = new HashSet<>();
 
+    public Team(Long id) {
+        this.id = id;
+        this.name = id + "组";
+    }
 }
