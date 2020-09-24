@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class Trainer {
     @NotNull
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "group_id")
-    private Group group;
+    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "team_id")
+    private Team group;
 }

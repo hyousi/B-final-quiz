@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Trainee {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -33,8 +35,8 @@ public class Trainee {
     @NotNull
     private String zoomId;
 
-    @ManyToOne
-    @JoinColumn(name = "group_id")
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "team_id")
     @JsonIgnore
-    private Group group;
+    private Team team;
 }

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Group {
+public class Team {
     @Id
     @GeneratedValue
     private Long id;
