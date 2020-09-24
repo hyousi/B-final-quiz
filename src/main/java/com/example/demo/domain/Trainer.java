@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,5 +27,6 @@ public class Trainer {
 
     @ManyToOne(cascade={CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "team_id")
-    private Team group;
+    @JsonIgnore
+    private Team team;
 }
