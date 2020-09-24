@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -34,5 +35,6 @@ public class Trainee {
 
     @ManyToOne
     @JoinColumn(name = "group_id")
+    @JsonIgnore
     private Group group;
 }

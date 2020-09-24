@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TraineeRepository extends JpaRepository<Trainee, Long> {
 
-    List<Trainee> findAllByGroupIdIsNotNull();
+    List<Trainee> findAllByGroupIsNotNull();
 
-    List<Trainee> findAllByGroupIdIsNull();
+    List<Trainee> findAllByGroupIsNull();
 }

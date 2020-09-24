@@ -16,9 +16,13 @@ public class TraineeService {
 
     public List<Trainee> getAll(boolean isGrouped) {
         if (isGrouped) {
-            return traineeRepository.findAllByGroupIdIsNotNull();
+            return traineeRepository.findAllByGroupIsNotNull();
         } else {
-            return traineeRepository.findAllByGroupIdIsNull();
+            return traineeRepository.findAllByGroupIsNull();
         }
+    }
+
+    public Trainee add(Trainee trainee) {
+        return traineeRepository.save(trainee);
     }
 }
